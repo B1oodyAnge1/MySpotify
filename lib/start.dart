@@ -11,6 +11,8 @@ class Spotify extends StatelessWidget {
       color: const Color.fromRGBO(241, 241, 241, 1),
       child: AnimatedSplashScreen(
         splash: const Image(
+          width: 196,
+          height: 59,
           image: AssetImage('assets/StartSpotify.jpg'),
         ),
         splashTransition: SplashTransition.fadeTransition,
