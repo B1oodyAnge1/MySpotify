@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:flutter/material.dart';
+import 'start_screen.dart';
 
 class Spotify extends StatelessWidget {
   const Spotify({super.key});
@@ -6,8 +8,16 @@ class Spotify extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromRGBO(255, 255, 255, 1),
-      child: const Text("Hellow"),
+      color: const Color.fromRGBO(241, 241, 241, 1),
+      child: AnimatedSplashScreen(
+        splash: const Image(
+          image: AssetImage('assets/StartSpotify.jpg'),
+        ),
+        splashTransition: SplashTransition.fadeTransition,
+        backgroundColor: const Color.fromRGBO(241, 241, 241, 1),
+        duration: 4400,
+        nextScreen: const StartScreen(),
+      ),
     );
   }
 }
