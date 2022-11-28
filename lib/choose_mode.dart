@@ -9,12 +9,17 @@ class ChooseMode extends StatefulWidget {
 }
 
 class _MyChooseMode extends State<ChooseMode> {
+  // Color backgL = Color.fromRGBO(255, 255, 255, 1);
+  // Color backgD = Color.fromRGBO(40, 40, 40, 1);
+  Color _colors = Color.fromRGBO(255, 255, 255, 1);
   @override
   Widget build(BuildContext context) {
     double myHeight = MediaQuery.of(context).size.height;
     double myWidth = MediaQuery.of(context).size.width;
+    final arguments = ModalRoute.of(context)?.settings.arguments;
+
     return Container(
-      color: Colors.white,
+      color: _colors,
       child: Stack(
         alignment: AlignmentDirectional.bottomCenter,
         children: [
@@ -26,20 +31,26 @@ class _MyChooseMode extends State<ChooseMode> {
           ),
           Positioned(
             bottom: 35,
-            child: Container(
-              width: 329,
-              height: 72,
-              decoration: BoxDecoration(
+            child: GestureDetector(
+              onTap: (() =>
+                  Navigator.pushNamed(context, '/3', arguments: _colors)),
+              child: Container(
+                padding: const EdgeInsets.only(
+                  left: 95,
+                  right: 95,
+                  top: 16,
+                  bottom: 16,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
                   color: const Color.fromRGBO(66, 200, 60, 1),
-                  borderRadius: BorderRadius.circular(30)),
-              child: const TextButton(
-                onPressed: null,
-                child: Text(
+                ),
+                child: const Text(
                   'Continue',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
+                      color: Colors.white,
+                      fontSize: 24,
+                      decoration: TextDecoration.none),
                 ),
               ),
             ),
@@ -47,34 +58,54 @@ class _MyChooseMode extends State<ChooseMode> {
           Positioned(
             bottom: 139,
             left: 89,
-            child: Container(
-              width: 73,
-              height: 73,
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 0.01),
-                borderRadius: BorderRadius.circular(50),
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _colors == const Color.fromRGBO(255, 255, 255, 1)
+                      ? _colors = const Color.fromRGBO(40, 40, 40, 1)
+                      : _colors = const Color.fromRGBO(255, 255, 255, 1);
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.all(40),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: Image.asset('assets/img/VectorDark.png').image,
+                  ),
+                  borderRadius: BorderRadius.circular(50),
+                  color: const Color.fromRGBO(255, 255, 255, 0.1),
+                ),
               ),
-              child: Image.asset('assets/img/VectorDark.png'),
             ),
           ),
           Positioned(
             bottom: 139,
             right: 89,
-            child: Container(
-              width: 73,
-              height: 73,
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 0.01),
-                borderRadius: BorderRadius.circular(50),
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _colors == const Color.fromRGBO(40, 40, 40, 1)
+                      ? _colors = const Color.fromRGBO(255, 255, 255, 1)
+                      : _colors = const Color.fromRGBO(40, 40, 40, 1);
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.all(40),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: Image.asset('assets/img/VectorLight.png').image,
+                  ),
+                  borderRadius: BorderRadius.circular(50),
+                  color: const Color.fromRGBO(255, 255, 255, 0.1),
+                ),
               ),
-              child: Image.asset('assets/img/VectorLight.png'),
             ),
           ),
           const Positioned(
-            bottom: 109,
+            bottom: 229,
             child: SizedBox(
               width: 380,
-              height: 149,
+              height: 39,
               child: Text(
                 'Choose Mode',
                 textAlign: TextAlign.center,

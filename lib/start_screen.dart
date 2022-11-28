@@ -26,20 +26,26 @@ class _StartScreen extends State<StartScreen> {
           ),
           Positioned(
             bottom: 35,
-            child: Container(
-              width: 329,
-              height: 72,
-              decoration: BoxDecoration(
-                  color: Color.fromRGBO(66, 200, 60, 1),
-                  borderRadius: BorderRadius.circular(30)),
-              child: TextButton(
-                onPressed: (() => Navigator.pushNamed(context, '/2')),
+            child: GestureDetector(
+              onTap: (() =>
+                  Navigator.pushNamed(context, '/2', arguments: 'aaaaaaaaa')),
+              child: Container(
+                padding: const EdgeInsets.only(
+                  left: 85,
+                  right: 85,
+                  top: 16,
+                  bottom: 16,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: const Color.fromRGBO(66, 200, 60, 1),
+                ),
                 child: const Text(
                   'Get Started',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
+                      color: Colors.white,
+                      fontSize: 24,
+                      decoration: TextDecoration.none),
                 ),
               ),
             ),
@@ -82,12 +88,10 @@ class _StartScreen extends State<StartScreen> {
             top: 1,
             left: 97,
             right: 97,
-            child: SizedBox(
-              child: SvgPicture.asset(
-                'assets/img/StartSpotify.svg',
-                height: 69,
-                width: 196,
-              ),
+            child: SvgPicture.asset(
+              'assets/img/StartSpotify.svg',
+              height: 69,
+              width: 196,
             ),
           ),
         ],

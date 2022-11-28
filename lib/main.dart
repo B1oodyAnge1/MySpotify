@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/choose_mode.dart';
+import 'package:spotify/register_sigin_in.dart';
 import 'package:spotify/start.dart';
 import 'package:spotify/start_screen.dart';
 
@@ -12,6 +13,7 @@ void main() {
       '/': (context) => const Spotify(),
       '/1': (context) => const StartScreen(),
       '/2': (context) => const ChooseMode(),
+      '/3': (context) => const RegSig(),
     },
   ));
 }
