@@ -63,7 +63,7 @@ class _MyChooseMode extends State<ChooseMode> {
                 setState(() {
                   _colors == const Color.fromRGBO(255, 255, 255, 1)
                       ? _colors = const Color.fromRGBO(40, 40, 40, 1)
-                      : _colors = const Color.fromRGBO(255, 255, 255, 1);
+                      : null;
                 });
               },
               child: Container(
@@ -86,7 +86,7 @@ class _MyChooseMode extends State<ChooseMode> {
                 setState(() {
                   _colors == const Color.fromRGBO(40, 40, 40, 1)
                       ? _colors = const Color.fromRGBO(255, 255, 255, 1)
-                      : _colors = const Color.fromRGBO(40, 40, 40, 1);
+                      : null;
                 });
               },
               child: Container(
