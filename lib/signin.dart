@@ -12,14 +12,22 @@ class SignIn extends StatefulWidget {
 
 class _MySignIn extends State<SignIn> {
   @override
+  bool _showPassword = false;
+  void _togglevisibility() {
+    setState(() {
+      _showPassword = !_showPassword;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     double myHeight = MediaQuery.of(context).size.height;
     double myWidth = MediaQuery.of(context).size.width;
     final colors = ModalRoute.of(context)?.settings.arguments;
     final Color colorText;
     colors == const Color.fromRGBO(40, 40, 40, 1)
-        ? colorText = Colors.white
-        : colorText = const Color.fromRGBO(56, 56, 56, 1);
+        ? colorText = whiteColor
+        : colorText = blackColor;
 
     return Scaffold(
       body: Container(
@@ -152,7 +160,7 @@ class _MySignIn extends State<SignIn> {
                 height: 80,
                 child: TextField(
                   style: TextStyle(color: colorText, fontFamily: familySatosh),
-                  obscureText: true,
+                  obscureText: !_showPassword,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30.0),
@@ -161,6 +169,15 @@ class _MySignIn extends State<SignIn> {
                     hintStyle: TextStyle(
                       color: colorText,
                       fontFamily: familySatosh,
+                    ),
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        _togglevisibility();
+                      },
+                      child: Icon(
+                        _showPassword ? Icons.visibility : Icons.visibility_off,
+                        color: colorText,
+                      ),
                     ),
                   ),
                 ),

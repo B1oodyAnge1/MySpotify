@@ -11,7 +11,8 @@ class ChooseMode extends StatefulWidget {
 }
 
 class _MyChooseMode extends State<ChooseMode> {
-  Color _colors = const Color.fromRGBO(255, 255, 255, 1);
+  Color _colors = whiteColor;
+  Color colorText = whiteColor;
 
   @override
   Widget build(BuildContext context) {
@@ -59,14 +60,12 @@ class _MyChooseMode extends State<ChooseMode> {
             ),
           ),
           Positioned(
-            bottom: 139,
+            bottom: 179,
             left: 89,
             child: GestureDetector(
               onTap: () {
                 setState(() {
-                  _colors == const Color.fromRGBO(255, 255, 255, 1)
-                      ? _colors = const Color.fromRGBO(40, 40, 40, 1)
-                      : null;
+                  _colors == whiteColor ? _colors = blackColor : null;
                 });
               },
               child: Container(
@@ -82,14 +81,12 @@ class _MyChooseMode extends State<ChooseMode> {
             ),
           ),
           Positioned(
-            bottom: 139,
+            bottom: 179,
             right: 89,
             child: GestureDetector(
               onTap: () {
                 setState(() {
-                  _colors == const Color.fromRGBO(40, 40, 40, 1)
-                      ? _colors = const Color.fromRGBO(255, 255, 255, 1)
-                      : null;
+                  _colors == blackColor ? _colors = whiteColor : null;
                 });
               },
               child: Container(
@@ -104,8 +101,32 @@ class _MyChooseMode extends State<ChooseMode> {
               ),
             ),
           ),
+          Positioned(
+              bottom: 149,
+              left: 89,
+              child: Text(
+                "Dark Mode",
+                style: TextStyle(
+                  fontFamily: familySatosh,
+                  decoration: TextDecoration.none,
+                  fontSize: 17,
+                  color: colorText,
+                ),
+              )),
+          Positioned(
+              bottom: 149,
+              right: 89,
+              child: Text(
+                "Light Mode",
+                style: TextStyle(
+                  fontFamily: familySatosh,
+                  decoration: TextDecoration.none,
+                  fontSize: 17,
+                  color: colorText,
+                ),
+              )),
           const Positioned(
-            bottom: 229,
+            bottom: 279,
             child: SizedBox(
               width: 380,
               height: 39,

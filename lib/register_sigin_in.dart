@@ -73,10 +73,10 @@ class _MyRegSig extends State<RegSig> {
                   top: 16,
                   bottom: 16,
                 ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: const Color.fromRGBO(66, 200, 60, 1),
-                ),
+                // decoration: BoxDecoration(
+                //   borderRadius: BorderRadius.circular(20),
+                //   color: const Color.fromRGBO(66, 200, 60, 1),
+                // ),
                 child: Text(
                   'Sign in',
                   style: TextStyle(
