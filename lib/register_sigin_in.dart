@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:spotify/Trem.dart';
 
 class RegSig extends StatefulWidget {
   const RegSig({super.key});
@@ -11,10 +12,11 @@ class RegSig extends StatefulWidget {
 class _MyRegSig extends State<RegSig> {
   @override
   Widget build(BuildContext context) {
-    double myHeight = MediaQuery.of(context).size.height;
-    double myWidth = MediaQuery.of(context).size.width;
     final colors = ModalRoute.of(context)?.settings.arguments;
-
+    final Color colorText;
+    colors == const Color.fromRGBO(40, 40, 40, 1)
+        ? colorText = Colors.white
+        : colorText = const Color.fromRGBO(56, 56, 56, 1);
     return Container(
       color: colors as Color,
       child: Stack(
@@ -22,13 +24,11 @@ class _MyRegSig extends State<RegSig> {
         children: [
           Positioned(
             left: 0,
-            child: Container(
-              child: Image.asset(
-                "assets/img/regSin.png",
-                height: 353,
-                width: 252,
-                fit: BoxFit.cover,
-              ),
+            child: Image.asset(
+              "assets/img/regSin.png",
+              height: 353,
+              width: 252,
+              fit: BoxFit.cover,
             ),
           ),
           Positioned(
@@ -48,13 +48,13 @@ class _MyRegSig extends State<RegSig> {
                   borderRadius: BorderRadius.circular(20),
                   color: const Color.fromRGBO(66, 200, 60, 1),
                 ),
-                child: const Text(
+                child: Text(
                   'Register',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: colorText,
                     fontSize: 21,
                     decoration: TextDecoration.none,
-                    fontFamily: 'Satoshi',
+                    fontFamily: familySatosh,
                   ),
                 ),
               ),
@@ -77,19 +77,19 @@ class _MyRegSig extends State<RegSig> {
                   borderRadius: BorderRadius.circular(20),
                   color: const Color.fromRGBO(66, 200, 60, 1),
                 ),
-                child: const Text(
+                child: Text(
                   'Sign in',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: colorText,
                     fontSize: 21,
                     decoration: TextDecoration.none,
-                    fontFamily: 'Satoshi',
+                    fontFamily: familySatosh,
                   ),
                 ),
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             bottom: 269,
             child: SizedBox(
               width: 380,
@@ -98,10 +98,10 @@ class _MyRegSig extends State<RegSig> {
                 'Enjoy listening to music',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Color.fromRGBO(56, 56, 56, 1),
+                  color: colorText,
                   decoration: TextDecoration.none,
                   fontSize: 27,
-                  fontFamily: 'Satoshi',
+                  fontFamily: familySatosh,
                 ),
               ),
             ),
@@ -118,7 +118,7 @@ class _MyRegSig extends State<RegSig> {
                   color: Color.fromRGBO(121, 121, 121, 1),
                   decoration: TextDecoration.none,
                   fontSize: 19,
-                  fontFamily: 'Satoshi',
+                  fontFamily: familySatosh,
                 ),
               ),
             ),

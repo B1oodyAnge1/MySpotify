@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'Trem.dart';
+
 class Register extends StatefulWidget {
   const Register({super.key});
 
@@ -14,7 +16,10 @@ class _MyRegister extends State<Register> {
     double myHeight = MediaQuery.of(context).size.height;
     double myWidth = MediaQuery.of(context).size.width;
     final colors = ModalRoute.of(context)?.settings.arguments;
-
+    final Color colorText;
+    colors == const Color.fromRGBO(40, 40, 40, 1)
+        ? colorText = Colors.white
+        : colorText = const Color.fromRGBO(56, 56, 56, 1);
     return Scaffold(
       body: Container(
         width: myWidth,
@@ -44,13 +49,13 @@ class _MyRegister extends State<Register> {
                       color: Colors.white,
                       fontSize: 21,
                       decoration: TextDecoration.none,
-                      fontFamily: 'Satoshi',
+                      fontFamily: familySatosh,
                     ),
                   ),
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               top: 119,
               child: SizedBox(
                 width: 380,
@@ -59,10 +64,10 @@ class _MyRegister extends State<Register> {
                   'Register',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color.fromRGBO(56, 56, 56, 1),
+                    color: colorText,
                     decoration: TextDecoration.none,
                     fontSize: 30,
-                    fontFamily: 'Satoshi',
+                    fontFamily: familySatosh,
                   ),
                 ),
               ),
@@ -70,13 +75,22 @@ class _MyRegister extends State<Register> {
             Positioned(
                 top: 149,
                 child: Row(
-                  children: const [
-                    Text('If you need any support'),
-                    TextButton(
+                  children: [
+                    Text(
+                      'If you need any support',
+                      style: TextStyle(
+                        color: colorText,
+                        fontFamily: familySatosh,
+                      ),
+                    ),
+                    const TextButton(
                       onPressed: null,
                       child: Text(
                         'click here',
-                        style: TextStyle(color: Color.fromRGBO(56, 180, 50, 1)),
+                        style: TextStyle(
+                          color: Color.fromRGBO(56, 180, 50, 1),
+                          fontFamily: familySatosh,
+                        ),
                       ),
                     )
                   ],
@@ -94,45 +108,69 @@ class _MyRegister extends State<Register> {
             ),
             Positioned(
               top: 200,
-              child: Container(
+              child: SizedBox(
                 width: 333,
                 height: 80,
                 child: TextField(
+                  style: TextStyle(
+                    color: colorText,
+                    fontFamily: familySatosh,
+                  ),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                     hintText: 'Full Name',
+                    hintStyle: TextStyle(
+                      color: colorText,
+                      fontFamily: familySatosh,
+                    ),
                   ),
                 ),
               ),
             ),
             Positioned(
               top: 270,
-              child: Container(
+              child: SizedBox(
                 width: 333,
                 height: 80,
                 child: TextField(
+                  style: TextStyle(
+                    color: colorText,
+                    fontFamily: familySatosh,
+                  ),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                     hintText: 'Enter Email',
+                    hintStyle: TextStyle(
+                      color: colorText,
+                      fontFamily: familySatosh,
+                    ),
                   ),
                 ),
               ),
             ),
             Positioned(
               top: 340,
-              child: Container(
+              child: SizedBox(
                 width: 333,
                 height: 80,
                 child: TextField(
+                  style: TextStyle(
+                    color: colorText,
+                    fontFamily: familySatosh,
+                  ),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                     hintText: 'Password',
+                    hintStyle: TextStyle(
+                      color: colorText,
+                      fontFamily: familySatosh,
+                    ),
                   ),
                 ),
               ),
@@ -140,20 +178,26 @@ class _MyRegister extends State<Register> {
             Positioned(
               top: 530,
               child: Row(
-                children: const [
+                children: [
                   SizedBox(
                     width: 146,
                     height: 1,
                     child: Divider(
-                      color: Colors.black,
+                      color: colorText,
                     ),
                   ),
-                  Text('    or   '),
+                  Text(
+                    '    or   ',
+                    style: TextStyle(
+                      color: colorText,
+                      fontFamily: familySatosh,
+                    ),
+                  ),
                   SizedBox(
                     width: 146,
                     height: 1,
                     child: Divider(
-                      color: Colors.black,
+                      color: colorText,
                     ),
                   ),
                 ],
@@ -186,20 +230,21 @@ class _MyRegister extends State<Register> {
             Positioned(
                 top: 620,
                 child: Row(
-                  children: const [
+                  children: [
                     Text(
                       'Do you have an account?',
                       style: TextStyle(
-                        fontFamily: 'Satoshi',
+                        fontFamily: familySatosh,
+                        color: colorText,
                       ),
                     ),
-                    TextButton(
+                    const TextButton(
                       onPressed: null,
                       child: Text(
                         'sign In',
                         style: TextStyle(
                           color: Color.fromRGBO(40, 140, 233, 1),
-                          fontFamily: 'Satoshi',
+                          fontFamily: familySatosh,
                         ),
                       ),
                     )

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'Trem.dart';
+
 class ChooseMode extends StatefulWidget {
   const ChooseMode({super.key});
 
@@ -9,9 +11,8 @@ class ChooseMode extends StatefulWidget {
 }
 
 class _MyChooseMode extends State<ChooseMode> {
-  // Color backgL = Color.fromRGBO(255, 255, 255, 1);
-  // Color backgD = Color.fromRGBO(40, 40, 40, 1);
-  Color _colors = Color.fromRGBO(255, 255, 255, 1);
+  Color _colors = const Color.fromRGBO(255, 255, 255, 1);
+
   @override
   Widget build(BuildContext context) {
     double myHeight = MediaQuery.of(context).size.height;
@@ -48,9 +49,11 @@ class _MyChooseMode extends State<ChooseMode> {
                 child: const Text(
                   'Continue',
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      decoration: TextDecoration.none),
+                    color: Colors.white,
+                    fontSize: 24,
+                    decoration: TextDecoration.none,
+                    fontFamily: familySatosh,
+                  ),
                 ),
               ),
             ),
@@ -113,7 +116,7 @@ class _MyChooseMode extends State<ChooseMode> {
                   color: Color.fromRGBO(218, 218, 218, 1),
                   decoration: TextDecoration.none,
                   fontSize: 25,
-                  fontFamily: 'Satoshi',
+                  fontFamily: familySatosh,
                 ),
               ),
             ),
